@@ -20,5 +20,7 @@ namespace PlaywrightTests.Helpers
         public static int Timeout => int.Parse(config["Playwright:Timeout"]);
         public static string Username => config["Credentials:Username"];
         public static string Password => config["Credentials:Password"];
+        public static bool UseKioskMode => bool.Parse(config["Playwright:UseKioskMode"] ?? "false");
+
     }
 }

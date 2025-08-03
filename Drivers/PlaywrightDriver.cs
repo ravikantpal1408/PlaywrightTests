@@ -1,4 +1,5 @@
 using Microsoft.Playwright;
+using PlaywrightTests.Helpers;
 using System.Threading.Tasks;
 
 namespace PlaywrightTests.Drivers
@@ -11,18 +12,19 @@ namespace PlaywrightTests.Drivers
 
         public async Task InitializeAsync()
         {
+            var args = ConfigManager.UseKioskMode ? new[] { "--kiosk" } : new[] { "--start-maximized" };
+
             Playwright = await Microsoft.Playwright.Playwright.CreateAsync();
 
             Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
                 Headless = false,
-                Args = new[] { "--kiosk" }
+                Args = args
             });
 
             var context = await Browser.NewContextAsync(new BrowserNewContextOptions
             {
-                ViewportSize = null, // Use full screen
-                IgnoreHTTPSErrors = true
+                ViewportSize = null
             });
 
             Page = await context.NewPageAsync();
