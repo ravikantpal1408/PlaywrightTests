@@ -12,8 +12,18 @@ namespace PlaywrightTests.Drivers
         public async Task InitializeAsync()
         {
             Playwright = await Microsoft.Playwright.Playwright.CreateAsync();
-            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions { Headless = false });
-            var context = await Browser.NewContextAsync();
+
+            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            {
+                Headless = false,
+                Args = new[] { "--start-maximized" } // 💡 Maximize browser window
+            });
+
+            var context = await Browser.NewContextAsync(new BrowserNewContextOptions
+            {
+                ViewportSize = null // 🔑 Use full available screen
+            });
+
             Page = await context.NewPageAsync();
         }
 

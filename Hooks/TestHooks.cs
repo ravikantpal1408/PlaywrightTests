@@ -20,28 +20,44 @@ namespace PlaywrightTests.Hooks
             var driver = new PlaywrightDriver();
             await driver.InitializeAsync();
 
-            if (driver.Page != null)
-            {
-                _scenarioContext["page"] = driver.Page;
-                _scenarioContext["driver"] = driver; // store driver for cleanup
-            }
+            _scenarioContext["page"] = driver.Page;
+            _scenarioContext["driver"] = driver;
         }
 
         [AfterScenario]
         public async Task AfterScenario()
         {
-            try
+            if (_scenarioContext.TryGetValue("page", out var pageObj) &&
+                pageObj is Microsoft.Playwright.IPage page)
             {
-                if (_scenarioContext.TryGetValue("driver", out var driverObj) &&
-                    driverObj is PlaywrightDriver driver)
+                if (_scenarioContext.ScenarioExecutionStatus == ScenarioExecutionStatus.TestError)
                 {
-                    await driver.CleanupAsync();
+                    var screenshotsDir = Path.Combine(Directory.GetCurrentDirectory(), "Screenshots");
+                    Directory.CreateDirectory(screenshotsDir);
+
+                    var fileName = $"{_scenarioContext.ScenarioInfo.Title}_{DateTime.Now:yyyyMMdd_HHmmss}.png";
+                    var filePath = Path.Combine(screenshotsDir, fileName);
+
+                    await page.ScreenshotAsync(new Microsoft.Playwright.PageScreenshotOptions
+                    {
+                        Path = filePath,
+                        FullPage = true
+                    });
+
+                    Console.WriteLine($"🖼 Screenshot saved: {filePath}");
                 }
             }
-            catch (Exception ex)
+
+            if (_scenarioContext.TryGetValue("driver", out var driverObj) &&
+                driverObj is PlaywrightDriver driver)
             {
-                Console.WriteLine($"[AfterScenario Cleanup Error] {ex.Message}");
-                // optionally log more info or rethrow
+                await driver.CleanupAsync();
+            }
+
+            if (_scenarioContext.TestError != null)
+            {
+                Console.WriteLine($"❌ Scenario failed: {_scenarioContext.ScenarioInfo.Title}");
+                Console.WriteLine($"   Error: {_scenarioContext.TestError.Message}");
             }
         }
     }

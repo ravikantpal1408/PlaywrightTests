@@ -8,6 +8,10 @@
   "plugins": [
     {
       "name": "SpecFlow.Plus.LivingDoc"
+    },
+    {
+      "name": "SpecFlow.Plus.LivingDocPlugin",
+      "type": "Generator"
     }
   ],
   "stepAssemblies": [],
