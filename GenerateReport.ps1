@@ -1,4 +1,15 @@
+dotnet clean
+
+Start-Sleep -Seconds 5
+
+dotnet build --no-restore --configuration Debug
+
+Start-Sleep -Seconds 5
+
+
+
 dotnet test --no-build --logger:"console;verbosity=detailed"
+# dotnet test --filter "TestCategory=Dashboard" --no-build --logger:"console;verbosity=detailed"
 
 # Wait for test results to be generated
 Start-Sleep -Seconds 2
