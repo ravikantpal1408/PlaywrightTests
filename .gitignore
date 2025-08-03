@@ -31,3 +31,5 @@ traces/
 
 # SpecFlow generated files
 *.feature.cs
+*.html
+*.json

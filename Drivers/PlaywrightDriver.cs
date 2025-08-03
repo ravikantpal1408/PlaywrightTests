@@ -19,8 +19,19 @@ namespace PlaywrightTests.Drivers
 
         public async Task CleanupAsync()
         {
-            await Browser?.CloseAsync();
-            Playwright?.Dispose();
+            try
+            {
+                if (Browser != null)
+                {
+                    await Browser.CloseAsync();
+                }
+
+                Playwright?.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[PlaywrightDriver Cleanup Error] {ex.Message}");
+            }
         }
     }
 }
