@@ -13,8 +13,6 @@ TestResults/
 .DS_Store
 Thumbs.db
 
-# VS Code settings (optional)
-.vscode/
 
 # Rider IDE
 .idea/
