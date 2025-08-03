@@ -16,12 +16,13 @@ namespace PlaywrightTests.Drivers
             Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
                 Headless = false,
-                Args = new[] { "--start-maximized" } // 💡 Maximize browser window
+                Args = new[] { "--start-maximized" },                // 💡 Maximize browser window
             });
 
             var context = await Browser.NewContextAsync(new BrowserNewContextOptions
             {
-                ViewportSize = null // 🔑 Use full available screen
+                ViewportSize = null, // Use full screen
+                IgnoreHTTPSErrors = true, // Ignore HTTPS errors
             });
 
             Page = await context.NewPageAsync();
