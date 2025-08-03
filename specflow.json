@@ -1,0 +1,18 @@
+{
+  "language": {
+    "feature": "en"
+  },
+  "bindingCulture": {
+    "language": "en-us"
+  },
+  "runtime": {
+    "missingOrPendingStepsOutcome": "Error",
+    "obsoleteBehavior": "Error"
+  },
+  "plugins": [
+    {
+      "name": "SpecFlow.MSTest",
+      "type": "UnitTestProvider"
+    }
+  ]
+}

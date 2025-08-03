@@ -1,0 +1,33 @@
+# Build folders
+bin/
+obj/
+TestResults/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional)
+.vscode/
+
+# Rider IDE
+.idea/
+
+# Playwright output
+playwright-report/
+test-results/
+screenshots/
+videos/
+traces/
+
+# Logs
+*.log
+
+# SpecFlow generated files
+*.feature.cs
