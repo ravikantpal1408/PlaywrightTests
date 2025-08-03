@@ -7,5 +7,5 @@ Feature: OrangeHRM Dashboard
 
   Scenario: Dashboard is visible after login
     Then I should see key dashboard widgets
-    #And I should see the user profile dropdown
-    #And I should see the quick launch panel
+#And I should see the user profile dropdown
+#And I should see the quick launch panel

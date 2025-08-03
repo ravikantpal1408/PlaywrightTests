@@ -6,8 +6,6 @@ dotnet build --no-restore --configuration Debug
 
 Start-Sleep -Seconds 5
 
-
-
 dotnet test --no-build --logger:"console;verbosity=detailed"
 # dotnet test --filter "TestCategory=Dashboard" --no-build --logger:"console;verbosity=detailed"
 

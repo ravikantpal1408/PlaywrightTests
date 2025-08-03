@@ -16,11 +16,32 @@ namespace PlaywrightTests.Drivers
 
             Playwright = await Microsoft.Playwright.Playwright.CreateAsync();
 
-            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            if (ConfigManager.Browser.Equals("Firefox", StringComparison.OrdinalIgnoreCase))
             {
-                Headless = false,
-                Args = args
-            });
+                Browser = await Playwright.Firefox.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = ConfigManager.Headless,
+                    Args = args
+                });
+            }
+            else if (ConfigManager.Browser.Equals("Edge", StringComparison.OrdinalIgnoreCase))
+            {
+                Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    ExecutablePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+                    Headless = ConfigManager.Headless,
+                    Args = new[] { "--start-maximized" }
+                });
+            }
+            else
+            {
+                Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = ConfigManager.Headless,
+                    Args = args
+                });
+            }
+
 
             var context = await Browser.NewContextAsync(new BrowserNewContextOptions
             {
