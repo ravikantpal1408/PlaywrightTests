@@ -30,6 +30,19 @@ namespace PlaywrightTests.Steps
             await _loginPage.EnterCredentials("Admin", "admin123");
         }
 
+        [When(@"I login with invalid OrangeHRM credentials")]
+        public async Task WhenILoginWithInValidOrangeHRMCredentials()
+        {
+            await _loginPage.EnterCredentials("Admin", "test123");
+        }
+
+        [Then(@"I should be error message")]
+        public async Task TheISeeErrorMessage()
+        {
+            var visible = await _loginPage.IsErrorVisible();
+
+        }
+
         [Then(@"I should be redirected to the OrangeHRM dashboard")]
         public async Task ThenIShouldBeRedirectedToTheOrangeHRMDashboard()
         {
