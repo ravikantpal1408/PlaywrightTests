@@ -29,5 +29,6 @@ traces/
 
 # SpecFlow generated files
 *.feature.cs
+.vs/
 *.html
 *.json
