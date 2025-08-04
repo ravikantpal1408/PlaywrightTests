@@ -32,3 +32,10 @@ traces/
 .vs/
 *.html
 *.json
+.vs/PlaywrightTests/CopilotIndices/17.14.939.21063/CodeChunks.db
+.vs/PlaywrightTests/CopilotIndices/17.14.939.21063/SemanticSymbols.db
+.vs/PlaywrightTests/DesignTimeBuild/.dtbcache.v2
+.vs/PlaywrightTests/v17/.futdcache.v2
+.vs/ProjectEvaluation/playwrighttests.metadata.v9.bin
+.vs/ProjectEvaluation/playwrighttests.projects.v9.bin
+.vs/ProjectEvaluation/playwrighttests.strings.v9.bin
