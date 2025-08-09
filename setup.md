@@ -1,43 +1,16 @@
-✅ 3. Restore NuGet packages
-In the project root:
+# Run below command in following order
 
-bash
-Copy
-Edit
-dotnet restore
-✅ 4. Install Playwright tools
-bash
-Copy
-Edit
+## 1 -dotnet tool install --global Microsoft.Playwright.CLI
 
-# Installs Playwright and browser binaries
+## 2 -dotnet build
 
-npx playwright install
-If npx doesn't work, install Playwright CLI:
+## 3 -playwright install
 
-bash
-Copy
-Edit
-dotnet tool install --global Microsoft.Playwright.CLI
-playwright install
-✅ 5. Build the project
-bash
-Copy
-Edit
-dotnet build
-
-then install run below command
-npx playwiright install
-
-playwright install
-
-then
-
-dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+## 4 -dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 
 for linux based system
 export PATH="$PATH:$HOME/.dotnet/tools"
 
-livingdoc --help
+## 5 -livingdoc --help
 
 for linux
