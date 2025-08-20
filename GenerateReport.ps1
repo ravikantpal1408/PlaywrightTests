@@ -1,3 +1,15 @@
+dotnet tool install --global Microsoft.Playwright.CLI
+
+Start-Sleep -Seconds 30
+
+dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
+Start-Sleep -Seconds 30
+
+playwright install
+
+Start-Sleep -Seconds 30
+
 dotnet clean
 
 Start-Sleep -Seconds 5
@@ -5,6 +17,7 @@ Start-Sleep -Seconds 5
 dotnet build --no-restore --configuration Debug
 
 Start-Sleep -Seconds 5
+
 
 dotnet test --no-build --logger:"console;verbosity=detailed"
 # dotnet test --filter "TestCategory=Dashboard" --no-build --logger:"console;verbosity=detailed"
