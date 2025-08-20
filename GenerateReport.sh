@@ -1,5 +1,17 @@
 #!/bin/bash
 
+dotnet tool install --global Microsoft.Playwright.CLI
+
+sleep 30
+
+dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
+sleep 30
+
+playwright install
+
+sleep 30
+
 dotnet clean
 
 sleep 5
