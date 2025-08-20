@@ -12,6 +12,10 @@ playwright install
 
 sleep 30
 
+dotnet add package Microsoft.Playwright
+
+sleep 30
+
 dotnet clean
 
 sleep 5
