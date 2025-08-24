@@ -11,7 +11,9 @@ namespace PlaywrightTests.Pages
         public LoginPage(IPage page)
         {
             _page = page;
+          
         }
+      
 
         public async Task NavigateAsync()
         {

@@ -13,7 +13,8 @@ TestResults/
 .DS_Store
 Thumbs.db
 
-
+node_modules/
+my-mcp-server/package-lock.json
 # Rider IDE
 .idea/
 
