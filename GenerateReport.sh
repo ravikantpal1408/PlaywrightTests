@@ -2,19 +2,19 @@
 
 dotnet tool install --global Microsoft.Playwright.CLI
 
-sleep 30
+sleep 5
 
 dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 
-sleep 30
+sleep 5
 
 playwright install
 
-sleep 30
+sleep 5
 
 dotnet add package Microsoft.Playwright
 
-sleep 30
+sleep 5
 
 dotnet clean
 
@@ -28,7 +28,7 @@ dotnet test --no-build --logger:"console;verbosity=detailed"
 # dotnet test --filter "TestCategory=Dashboard" --no-build --logger:"console;verbosity=detailed"
 
 # Wait for test results to be generated
-sleep 2
+
 
 # Generate LivingDoc HTML report
 livingdoc test-assembly bin/Debug/net9.0/PlaywrightTests.dll \
