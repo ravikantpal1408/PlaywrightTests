@@ -12,8 +12,7 @@ namespace PlaywrightTests.Steps
     {
         private readonly IPage _page;
         private readonly LoginPage _loginPage;
-        private string _username;
-
+        // private string _username;
 
         public LoginSteps(ScenarioContext scenarioContext)
         {
@@ -24,7 +23,6 @@ namespace PlaywrightTests.Steps
         [Given(@"I navigate to OrangeHRM login page")]
         public async Task GivenINavigateToOrangeHRMLoginPage()
         {
-            _username = await McpManager.CallToolAsync("generateTestData", new { });
             await _loginPage.NavigateAsync();
         }
 

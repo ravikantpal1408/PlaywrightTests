@@ -23,7 +23,6 @@ namespace PlaywrightTests.Hooks
 
             _scenarioContext["page"] = driver.Page;
             _scenarioContext["driver"] = driver;
-            McpManager.Start(@"../server.js");
 
         }
 
@@ -62,8 +61,6 @@ namespace PlaywrightTests.Hooks
                 Console.WriteLine($"❌ Scenario failed: {_scenarioContext.ScenarioInfo.Title}");
                 Console.WriteLine($"   Error: {_scenarioContext.TestError.Message}");
             }
-
-            McpManager.Stop();
 
         }
     }

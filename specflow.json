@@ -6,7 +6,7 @@
     "allowDebugGeneratedFiles": true
   },
   "plugins": [
-    {
+    { 
       "name": "SpecFlow.Plus.LivingDoc"
     },
     {

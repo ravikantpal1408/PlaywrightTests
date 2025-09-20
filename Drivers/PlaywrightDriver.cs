@@ -45,7 +45,8 @@ namespace PlaywrightTests.Drivers
 
             var context = await Browser.NewContextAsync(new BrowserNewContextOptions
             {
-                ViewportSize = null
+                ViewportSize = new ViewportSize { Width = 1920, Height = 1080 },
+                IgnoreHTTPSErrors = true
             });
 
             Page = await context.NewPageAsync();
