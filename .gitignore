@@ -24,7 +24,7 @@ test-results/
 screenshots/
 videos/
 traces/
-
+WebDriver
 # Logs
 *.log
 
