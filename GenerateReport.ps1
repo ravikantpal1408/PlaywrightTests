@@ -6,7 +6,7 @@ dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 
 Start-Sleep -Seconds 2
 
-PLAYWRIGHT_BROWSERS_PATH=./WebDriver playwright install 
+PLAYWRIGHT_BROWSERS_PATH=./WebDriver playwright install
 
 Start-Sleep -Seconds 2
 
