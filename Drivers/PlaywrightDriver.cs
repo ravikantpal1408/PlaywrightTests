@@ -12,6 +12,8 @@ namespace PlaywrightTests.Drivers
 
         public async Task InitializeAsync()
         {
+            Environment.SetEnvironmentVariable("PLAYWRIGHT_BROWSERS_PATH", "./WebDriver");
+
             var args = ConfigManager.UseKioskMode ? new[] { "--kiosk" } : new[] { "--start-maximized" };
 
             Playwright = await Microsoft.Playwright.Playwright.CreateAsync();

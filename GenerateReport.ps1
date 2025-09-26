@@ -1,14 +1,14 @@
 dotnet tool install --global Microsoft.Playwright.CLI
 
-Start-Sleep -Seconds 30
+Start-Sleep -Seconds 2
 
 dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 
-Start-Sleep -Seconds 30
+Start-Sleep -Seconds 2
 
-playwright install
+PLAYWRIGHT_BROWSERS_PATH=./WebDriver playwright install 
 
-Start-Sleep -Seconds 30
+Start-Sleep -Seconds 2
 
 dotnet clean
 
